@@ -21,6 +21,10 @@ defmodule Tmdb.Tv do
     get!("tv/#{id}/content_ratings?").body
   end
 
+  def recommendations(id) do
+    get!("tv/#{id}/recommendations?").body
+  end
+
   def credits(id, params \\ %{}) do
     get!("tv/#{id}/credits?#{URI.encode_query(params)}").body
   end
