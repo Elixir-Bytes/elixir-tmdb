@@ -1,8 +1,10 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
-use Mix.Config
+import Config
+
 config :tmdb,
   api_key: System.get_env("TMDB_KEY")
+
 # Remember to load your api key in your system env before iex -S mix
 # export TMDB_KEY="<TMDB_KEY_HERE>"
 
@@ -31,4 +33,4 @@ config :tmdb,
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
