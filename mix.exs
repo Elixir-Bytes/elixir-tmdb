@@ -2,19 +2,21 @@ defmodule Tmdb.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :tmdb,
-     version: "0.1.1",
-     elixir: "~> 1.2",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :tmdb,
+      version: "0.1.1",
+      elixir: "~> 1.13",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison]]
+    [extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -28,8 +30,8 @@ defmodule Tmdb.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.8"},
-      {:poison, "~> 1.5 or ~> 2.0 or ~> 3.0"}
+      {:req, ">= 0.0.0"},
+      {:jason, ">= 0.0.0"}
     ]
   end
 end

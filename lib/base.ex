@@ -1,11 +1,10 @@
 defmodule Tmdb.Base do
   defmacro __using__(_) do
     quote do
-      use HTTPoison.Base
-
-      defp process_response_body(body) do
-        body
-        |> Poison.decode!
+      defp get!(url) do
+        url
+        |> process_url()
+        |> Req.get!()
       end
 
       defp process_url(url) do
